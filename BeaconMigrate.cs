@@ -24,7 +24,14 @@ public class TestClass
 		}
 		else
 		{
-			s = x64;
+			// X64 platform but we cannot support x64 in shellcode
+            		if (x64.Equals(String.Empty))
+            		{
+                		s = x86;
+            		}else
+            		{
+			    	s = x64;
+            		}
 		}
 		
 		byte[] shellcode = Convert.FromBase64String(s);
